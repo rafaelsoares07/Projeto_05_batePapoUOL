@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bate Papo UOL</title>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+    
+
+
+    <input class="InputNameUser" type="text" placeholder="digite seu nome de usuario">
+    <br>
+    <button onclick="postLogInChat()">Enviar dado do nome e entrar no chat com user</button><br><br><br>
+
+
+
+
+    <button onclick="getChatMessage()">Pegar dados</button><br><br><br>
+
+    <button onclick="LogOutChat()"> Sair do chat</button><br><br><br><br>
+
+
+    <div class="container-message">
+        <div>
+            <ul class="caixa-mensagens">
+                <li class="mensagem"></li>
+            </ul>
+        </div>
+    </div>
+
+    <input class="InputMessageUser" type="text" placeholder="digite a mensagem que voce que enviar "><br>
+    <button onclick="sendChatMessage()">Enviar mensagem</button><br><br><br>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+
