@@ -9,9 +9,35 @@ let nameUser;
 
 
 
+//Eventos
+document.addEventListener('keypress', (element)=>{
+    if(element.key ===  'Enter'){
+        sendChatMessage()
+    }
+})
+
+//Animações
+function exibirMenu(){
+    console.log('clicou')
+
+     let el = document.querySelector('aside')
+
+     el.classList.add('toggleAnimation')
+
+     el.style.display = 'block'
+
+}
+
+
+
+
+
 
 //INÍCIO DA FUNÇÃO QUE FAZ O LOGIN E MANTEM A CONEXÃO DO USER COM O setINTERVAL
 function postLogInChat() {
+
+    
+
     nameUser = document.querySelector('.InputNameUser').value
     console.log(nameUser)
 
@@ -28,6 +54,7 @@ function postLogInChat() {
        
         if (response.status === 200) {
             console.log("USUÁRIO ENTROU COM SUCESSO statusCode(200)")
+            document.querySelector('.telaEntrada').style.display = 'none'
         }
         postManutencao = setInterval(function () {
             axios.post(URL_POST_KEEP_CONECT, objetoName).then(response => {
@@ -55,7 +82,10 @@ function sendChatMessage() {
 
     let mensageInput = document.querySelector('.InputMessageUser').value
     //console.log(mensageInput)
-   
+
+    document.querySelector('.InputMessageUser').value =''
+
+
     let message={
         from:nameUser,
         to:"Todos",
@@ -70,7 +100,9 @@ function sendChatMessage() {
        
         //console.log(response + 'sendChatMensage')
         
-    }).catch(error=> console.log(error))
+    }).catch(error=> {
+        window.location.reload()
+    })
 }
 
 //FIM DA FUNCÃO QUE FAZ O ENVIO DAS MENSAGENS
@@ -95,6 +127,7 @@ function getChatMessage() {
 
     mensagem.then(response => {
         
+        
         renderizarMessages(response)
 
         if (response.status === 200) {
@@ -102,6 +135,8 @@ function getChatMessage() {
         }
     }).catch(error => console.log(error))
 }
+
+setInterval(getChatMessage,1000)
 //FIM DA FUNÇÃO QUE FAZ A REQUISIÇÃO DAS MENSAGEM 
 
 
@@ -113,13 +148,40 @@ function renderizarMessages(response){
     let caixaMensagens = document.querySelector('.caixa-mensagens')
 
     caixaMensagens.innerHTML = ''
-    for(let i=95; i<response.data.length; i++){
+    for(let i=50; i<response.data.length; i++){
         //console.log("entrou")
         let userAtual = response.data[i]
-        caixaMensagens.innerHTML = caixaMensagens.innerHTML + `<li> ${userAtual.from}: ${userAtual.text}</li>`
+
+        caixaMensagens.innerHTML = caixaMensagens.innerHTML + formataCaixaMessage(userAtual)
+
     }
 }
 
 
-setInterval(getChatMessage,100)
+function formataCaixaMessage(response){
 
+    if(response.text === "entra na sala..."){
+        return `<li class="box-menssage entrou">
+        <div class="message">
+            <span>(${response.time}) </span> ${response.from}: ${response.text}
+        </div>
+    </li>`
+    }
+
+    else if(response.text === "sai da sala..."){
+        return `<li class="box-menssage saiu">
+        <div class="message">
+            <span>(${response.time}) </span> ${response.from}: ${response.text}
+        </div>
+    </li>`
+    }
+
+    else{
+        return `<li class="box-menssage">
+        <div class="message">
+            <span>(${response.time}) </span> ${response.from}: ${response.text}
+        </div>
+    </li>`
+
+    }
+}

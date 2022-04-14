@@ -16,32 +16,60 @@
     <div class="container">
 
         <!--Inicio tela bonus de entrada-->
-        <div class="TelaEntrada">
+        <div class="telaEntrada">
+            <div>
+                <img src="assets/img/logo 2.png" alt="">
+                <input class="InputNameUser" type="text" placeholder="Digite seu Nome">
+
+                <button onclick="postLogInChat()">Entrar</button>
+            </div>
+            
         </div>
         <!--Fim tela bonus de entrada-->
 
 
         <!--Início area das mensagens-->
-        <div class="TelaBatePapo">
+        <div class="telaBatePapo">
             <div class="nav-bar">
                 <img src="assets/img/logo 1.png" alt="">
-                <img src="assets/img/Vector.png" alt="">
+                <img class="exibirMenu" onclick="exibirMenu()" src="assets/img/Vector.png" alt="">
             </div>
+            
+            <aside>
+                <div class="container-menu-lateral">
+
+                </div>
+            </aside>
+
             <div class="mensagens">
-                <ul>
-                    <li class="box-menssage">
+                <ul class="caixa-mensagens">
+
+                    <li class="box-menssage ">
                         <div class="message">
-                            <span>dskpod</span>jddjsid
+                            <span>AAAAAAAAA </span> AAAAAAAAAAAAA
                         </div>
                     </li>
+
+                    <li class="box-menssage entrou">
+                        <div class="message">
+                            <span>AAAAAAAAA </span> AAAAAAAAAAAAA
+                        </div>
+                    </li>
+
+                    <li class="box-menssage saiu">
+                        <div class="message">
+                            <span>AAAAAAAAA </span> AAAAAAAAAAAAA
+                        </div>
+                    </li>
+                    
 
                 </ul>
             </div>
 
             <div class="inputText">
                 <div class="areaInput">
-                    <input class="ml" type="text" placeholder="Digite aqui sua mensagem">
-                    <img class="mr" src="assets/img/Vector(1).png" alt="">
+                    <input class="InputMessageUser" class="ml" type="text" placeholder="Digite aqui sua mensagem">
+                    <img onclick="sendChatMessage()" class="mr" src="assets/img/Vector(1).png" alt="">
                 </div>
             </div>
         </div>
@@ -51,37 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-    <!--<input class="InputNameUser" type="text" placeholder="digite seu nome de usuario">
-<br>
-<button onclick="postLogInChat()">Enviar dado do nome e entrar no chat com user</button><br><br><br>
-
-
-
-
-<button onclick="getChatMessage()">Pegar dados</button><br><br><br>
-
-<button onclick="LogOutChat()"> Sair do chat</button><br><br><br><br>
-
-
-<div class="container-message">
-    <div>
-        <ul class="caixa-mensagens">
-            <li class="mensagem"></li>
-        </ul>
-    </div>
-</div>
-
-<input class="InputMessageUser" type="text" placeholder="digite a mensagem que voce que enviar "><br>
-<button onclick="sendChatMessage()">Enviar mensagem</button><br><br><br>-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
