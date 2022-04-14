@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bate Papo UOL</title>
-    
+    <link rel="stylesheet" href="assets/css/reset.css">
+
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
+
 <body>
-    
+    <div class="container">
 
-
-    <input class="InputNameUser" type="text" placeholder="digite seu nome de usuario">
-    <br>
-    <button onclick="postLogInChat()">Enviar dado do nome e entrar no chat com user</button><br><br><br>
-
-
-
-
-    <button onclick="getChatMessage()">Pegar dados</button><br><br><br>
-
-    <button onclick="LogOutChat()"> Sair do chat</button><br><br><br><br>
-
-
-    <div class="container-message">
-        <div>
-            <ul class="caixa-mensagens">
-                <li class="mensagem"></li>
-            </ul>
+        <!--Inicio tela bonus de entrada-->
+        <div class="TelaEntrada">
         </div>
+        <!--Fim tela bonus de entrada-->
+
+
+        <!--Início area das mensagens-->
+        <div class="TelaBatePapo">
+            <div class="nav-bar">
+                <img src="assets/img/logo 1.png" alt="">
+                <img src="assets/img/Vector.png" alt="">
+            </div>
+            <div class="mensagens">
+                <ul>
+                    <li class="box-menssage">
+                        <div class="message">
+                            <span>dskpod</span>jddjsid
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="inputText">
+                <div class="areaInput">
+                    <input class="ml" type="text" placeholder="Digite aqui sua mensagem">
+                    <img class="mr" src="assets/img/Vector(1).png" alt="">
+                </div>
+            </div>
+        </div>
+        <!--Fim area das mensagens-->
+
     </div>
 
-    <input class="InputMessageUser" type="text" placeholder="digite a mensagem que voce que enviar "><br>
-    <button onclick="sendChatMessage()">Enviar mensagem</button><br><br><br>
 
 
 
@@ -42,8 +56,34 @@
 
 
 
+
+
+
+
+    <!--<input class="InputNameUser" type="text" placeholder="digite seu nome de usuario">
+<br>
+<button onclick="postLogInChat()">Enviar dado do nome e entrar no chat com user</button><br><br><br>
+
+
+
+
+<button onclick="getChatMessage()">Pegar dados</button><br><br><br>
+
+<button onclick="LogOutChat()"> Sair do chat</button><br><br><br><br>
+
+
+<div class="container-message">
+    <div>
+        <ul class="caixa-mensagens">
+            <li class="mensagem"></li>
+        </ul>
+    </div>
+</div>
+
+<input class="InputMessageUser" type="text" placeholder="digite a mensagem que voce que enviar "><br>
+<button onclick="sendChatMessage()">Enviar mensagem</button><br><br><br>-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
-</html>
 
+</html>
