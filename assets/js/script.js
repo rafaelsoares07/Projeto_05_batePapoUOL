@@ -2,9 +2,12 @@ const URL_POST_LOGIN = "https://mock-api.driven.com.br/api/v6/uol/participants "
 const URL_POST_KEEP_CONECT = "https://mock-api.driven.com.br/api/v6/uol/status"
 const URL_GET_MENSSAGE = "https://mock-api.driven.com.br/api/v6/uol/messages"
 const URL_SEND_MENSSAGE = "https://mock-api.driven.com.br/api/v6/uol/messages"
+const URL_GET_USERS_ACTIVE = "https://mock-api.driven.com.br/api/v6/uol/participants"
+
 
 let postManutencao; // Variavel pra usar no ClearInterval para deslogar Usuario
 let nameUser;
+let objetoName;
 
 
 
@@ -43,7 +46,7 @@ function postLogInChat() {
 
     LogOutChat()//clearInterval limpa o clearInteval do objeto anterior , antes eu tava limpando só qunado clicava ai ficou sobrescrito os objetos
 
-     let objetoName = {
+     objetoName = {
         name: nameUser
     }
 
@@ -148,7 +151,7 @@ function renderizarMessages(response){
     let caixaMensagens = document.querySelector('.caixa-mensagens')
 
     caixaMensagens.innerHTML = ''
-    for(let i=50; i<response.data.length; i++){
+    for(let i=90; i<response.data.length; i++){
         //console.log("entrou")
         let userAtual = response.data[i]
 
@@ -163,7 +166,7 @@ function formataCaixaMessage(response){
     if(response.text === "entra na sala..."){
         return `<li class="box-menssage entrou">
         <div class="message">
-            <span>(${response.time}) </span> ${response.from}: ${response.text}
+            <span class='spanHours'>(${response.time}) </span> ${response.from}: ${response.text}
         </div>
     </li>`
     }
@@ -171,7 +174,7 @@ function formataCaixaMessage(response){
     else if(response.text === "sai da sala..."){
         return `<li class="box-menssage saiu">
         <div class="message">
-            <span>(${response.time}) </span> ${response.from}: ${response.text}
+            <span class='spanHours'>(${response.time}) </span> ${response.from}: ${response.text}
         </div>
     </li>`
     }
@@ -179,9 +182,41 @@ function formataCaixaMessage(response){
     else{
         return `<li class="box-menssage">
         <div class="message">
-            <span>(${response.time}) </span> ${response.from}: ${response.text}
+            <span class='spanHours'>(${response.time}) </span> ${response.from}: ${response.text}
         </div>
     </li>`
 
     }
 }
+
+
+//Fução para pegar usuarios ativos
+
+function getActiveUser(){
+
+    let UserActive = axios.get(URL_GET_USERS_ACTIVE)
+
+    UserActive.then(response =>{
+        
+        renderizarUsuariosAtivos(response.data)
+
+    }).catch(error => console.log(error))
+}
+
+function renderizarUsuariosAtivos(response){
+    
+    let UsersActive = document.querySelector('.UsersAtivos')
+
+    for(let i = 0; i<response.length; i++){
+        let nameUser = response[i].name
+
+        UsersActive.innerHTML +=
+    ` <div class="row-user">
+        <img src="assets/img/Vector(3).png" alt="">
+        <p>${nameUser}</p>
+     </div>`
+    }
+}
+
+getActiveUser()
+
