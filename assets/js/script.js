@@ -31,6 +31,13 @@ function exibirMenu(){
 
 }
 
+function ocultarMenu(){
+    el = document.querySelector('aside')
+    el.classList.remove('toggleAnimation')
+
+    el.style.display = 'none'
+}
+
 
 
 
@@ -126,6 +133,8 @@ function LogOutChat(){
 //INÍCIO DA FUNÇÃO QUE FAZ A REQUISIÇÃO DAS MENSAGEM 
 function getChatMessage() {
 
+    getActiveUser()
+
     let mensagem = axios.get(URL_GET_MENSSAGE)
 
     mensagem.then(response => {
@@ -145,13 +154,13 @@ setInterval(getChatMessage,1000)
 
 
 function renderizarMessages(response){
-
     
 
     let caixaMensagens = document.querySelector('.caixa-mensagens')
+    
 
     caixaMensagens.innerHTML = ''
-    for(let i=90; i<response.data.length; i++){
+    for(let i=50; i<response.data.length; i++){
         //console.log("entrou")
         let userAtual = response.data[i]
 
@@ -207,6 +216,7 @@ function renderizarUsuariosAtivos(response){
     
     let UsersActive = document.querySelector('.UsersAtivos')
 
+    UsersActive.innerHTML = ''
     for(let i = 0; i<response.length; i++){
         let nameUser = response[i].name
 
@@ -218,5 +228,4 @@ function renderizarUsuariosAtivos(response){
     }
 }
 
-getActiveUser()
 

@@ -156,7 +156,28 @@ aside.toggleAnimation .container-menu-lateral{
     width: 250px;
 }
 
-.row-user{
+.row-user, .row-visibilidade{
     display: flex;
+    margin: 10px;
     
+    display: flex;
+    align-items: center;
 }
+
+.row-user img, .row-visibilidade img{
+    margin-right: 5px;
+}
+
+.UsersAtivos{
+    height: 300px;
+    overflow-y:scroll;
+    
+    margin: 10px 0;
+}
+
+.btn-ocultar{
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+}
+
