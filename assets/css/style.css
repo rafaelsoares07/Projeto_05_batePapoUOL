@@ -2,6 +2,14 @@
 
 *{
     box-sizing: border-box;
+
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+span{
+    word-wrap:break-word;
 }
 .ml{
     margin-left: 15px;
@@ -107,7 +115,7 @@ body{
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
-    margin-bottom: 7px;
+    margin-bottom: 4px;
 }
 
 .box-menssage.entrou{
@@ -128,7 +136,6 @@ body{
     width: 100%;
     
 }
-
 
 
 

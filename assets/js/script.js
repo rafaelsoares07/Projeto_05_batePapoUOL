@@ -160,7 +160,7 @@ function renderizarMessages(response){
     
 
     caixaMensagens.innerHTML = ''
-    for(let i=50; i<response.data.length; i++){
+    for(let i=0; i<response.data.length; i++){
         //console.log("entrou")
         let userAtual = response.data[i]
 
@@ -175,7 +175,7 @@ function formataCaixaMessage(response){
     if(response.text === "entra na sala..."){
         return `<li class="box-menssage entrou">
         <div class="message">
-            <span class='spanHours'>(${response.time}) </span> ${response.from}: ${response.text}
+            <span class='spanHours'>(${response.time}) </span> <span> ${response.from}: ${response.text} </span>
         </div>
     </li>`
     }
@@ -183,7 +183,7 @@ function formataCaixaMessage(response){
     else if(response.text === "sai da sala..."){
         return `<li class="box-menssage saiu">
         <div class="message">
-            <span class='spanHours'>(${response.time}) </span> ${response.from}: ${response.text}
+            <span class='spanHours'>(${response.time}) </span> <span> ${response.from}: ${response.text} </span>
         </div>
     </li>`
     }
@@ -191,7 +191,7 @@ function formataCaixaMessage(response){
     else{
         return `<li class="box-menssage">
         <div class="message">
-            <span class='spanHours'>(${response.time}) </span> ${response.from}: ${response.text}
+            <span class='spanHours'>(${response.time}) </span> <span> ${response.from}: ${response.text} </span>
         </div>
     </li>`
 
@@ -229,3 +229,6 @@ function renderizarUsuariosAtivos(response){
 }
 
 
+//CHAVE DE ACESSO NO GITHUB
+
+//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
