@@ -19,6 +19,16 @@ document.addEventListener('keypress', (element)=>{
     }
 })
 
+
+//scroll 
+function scrollMensage(){
+let scroll = document.querySelector('.caixa-mensagens').lastChild
+
+scroll.scrollIntoView();
+
+}
+
+
 //Animações
 function exibirMenu(){
     console.log('clicou')
@@ -90,6 +100,8 @@ function postLogInChat() {
 //INICÍO DA FUNÇÃO QUE FAZ O ENVIO DE MENSAGENS
 function sendChatMessage() {
 
+   
+
     let mensageInput = document.querySelector('.InputMessageUser').value
     //console.log(mensageInput)
 
@@ -108,9 +120,10 @@ function sendChatMessage() {
 
     enviarMessage.then(response=>{
        
-        //console.log(response + 'sendChatMensage')
+        console.log(response + 'sendChatMensage')
         
     }).catch(error=> {
+        
         window.location.reload()
     })
 }
@@ -143,12 +156,12 @@ function getChatMessage() {
         renderizarMessages(response)
 
         if (response.status === 200) {
-           // console.log('deu certo --- 200')
+            console.log('deu certo --- 200')
         }
     }).catch(error => console.log(error))
 }
 
-setInterval(getChatMessage,1000)
+setInterval(getChatMessage,3000)
 //FIM DA FUNÇÃO QUE FAZ A REQUISIÇÃO DAS MENSAGEM 
 
 
@@ -167,6 +180,8 @@ function renderizarMessages(response){
         caixaMensagens.innerHTML = caixaMensagens.innerHTML + formataCaixaMessage(userAtual)
 
     }
+
+    scrollMensage()
 }
 
 

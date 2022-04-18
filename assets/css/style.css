@@ -176,6 +176,8 @@ aside.toggleAnimation .container-menu-lateral{
 }
 
 .UsersAtivos{
+
+    width: 100%;
     height: 300px;
     overflow-y:scroll;
     
@@ -188,3 +190,7 @@ aside.toggleAnimation .container-menu-lateral{
     padding: 10px;
 }
 
+
+p{
+    word-wrap:break-word;
+}
